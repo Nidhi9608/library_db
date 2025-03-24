@@ -13,6 +13,7 @@
 -- 3.CTAS (Create Table As Select): Utilize CTAS to create new tables based on query results.
 -- 4.Advanced SQL Queries: Develop complex queries to analyze and retrieve specific data.
 
+'''sql
 -- Creating branch table
 create table branch
 (
@@ -116,23 +117,28 @@ select * from employees;
 select * from issued_status;
 select * from members;
 select * from return_status;
-
+'''
+ 
 -- Project Task
 
 -- CRUD Operations
 
 -- Task 1. Create a New Book Record 
 -- "978-1-60129-456-2', 'To Kill a Mockingbird', 'Classic', 6.00, 'yes', 'Harper Lee', 'J.B. Lippincott & Co.')"
+
+ '''sql
 insert into books (isbn, book_title, category, rental_price, status, author, publisher)
 values ('978-1-60129-456-2', 'To Kill a Mockingbird', 'Classic', 6.00, 'yes', 'Harper Lee', 'J.B. Lippincott & Co.');
 select * from books;
-
+'''
+ 
 -- Task 2: Update an Existing Member's Address
+'''sql
 update members
 set member_address = '125 Main St'
 where member_id = 'C101';
 select * from members;
-
+'''
 -- Task 3: Delete a Record from the Issued Status Table 
 -- Objective: Delete the record with issued_id = 'IS121' from the issued_status table.
 select * from issued_status;
@@ -341,6 +347,7 @@ call add_return_records('RS148', 'IS140', 'Good');
 -- showing the number of books issued, the number of books returned, 
 -- and the total revenue generated from book rentals.
 
+'''sql
 create table branch_performance_report as
 select 
 bh.branch_id,
@@ -360,11 +367,13 @@ on bk.isbn = ist.issued_book_isbn
 group by 1,2;
 
 select * from branch_performance_report;
-
+'''
+ 
 -- Task 16: CTAS: Create a Table of Active Members
 -- Use the CREATE TABLE AS (CTAS) statement 
 -- to create a new table active_members 
 -- containing members who have issued at least one book in the last 1 year.
+'''sql
 create table active_members as
 select * from members
 where member_id 
@@ -374,10 +383,12 @@ from issued_status
 where issued_date >= curdate() - interval 1 year);
 
 select * from active_members;
-
+'''
+ 
 -- Task 17: Find Employees with the Most Book Issues Processed
 -- Write a query to find the top 3 employees who have processed the most book issues. 
 -- Display the employee name, number of books processed, and their branch.
+'''sql
 select 
 e.emp_name,
 e.emp_id,
@@ -391,11 +402,13 @@ on ist.issued_emp_id = e.emp_id
 group by 1, 2
 order by no_books_issued desc
 limit 3;
-
+'''
+ 
 -- Task 18: Identify Members Issuing High-Risk Books
 -- Write a query to identify members who have issued books more than once 
 -- with the status "damaged" in the books table. Display the member name, book title, 
 -- and the number of times they've issued damaged books.
+'''sql
 create table members_issuing_high_risk_books as
 select 
 m.member_name,
@@ -419,7 +432,8 @@ select * from members_issuing_high_risk_books;
 update members_issuing_high_risk_books
 set book_quality = 'Damaged'
 where no_issued > 1;
-
+'''
+ 
 -- Task 19: Stored Procedure Objective: Create a stored procedure to manage the status of books in a library system. 
 -- Description: Write a stored procedure that updates the status of a book in the library based on its issuance. 
 -- The procedure should function as follows: The stored procedure should take the book_id as an input parameter. 
@@ -429,7 +443,8 @@ where no_issued > 1;
 -- the procedure should return an error message indicating that the book is currently not available.
 
 -- Stored Procedure
-Delimiter //
+'''sql
+ Delimiter //
 
 create procedure manage_status(
 in p_issued_id varchar(10) ,
@@ -477,7 +492,8 @@ select * from books
 where isbn = '978-0-553-29698-2';
 
 call manage_status('IS156', 'C108', '978-0-375-41398', 'E104');
-
+'''
+ 
 -- Task 20: Create Table As Select (CTAS) Objective: 
 -- Create a CTAS (Create Table As Select) query to identify overdue books and calculate fines.
 -- Description: 
@@ -487,6 +503,7 @@ call manage_status('IS156', 'C108', '978-0-375-41398', 'E104');
 -- The number of books issued by each member. 
 -- The resulting table should show: Member ID Number of overdue books Total fines
 
+'''sql
 create table identify_day_difference as
 select
 ist.issued_member_id,
@@ -508,6 +525,7 @@ from identify_day_difference
 where days_difference < 60
 order by 1
 ;
+'''
 
 -- Reports
 -- Database Schema: Detailed table structures and relationships.
