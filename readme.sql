@@ -13,6 +13,19 @@
 -- 3.CTAS (Create Table As Select): Utilize CTAS to create new tables based on query results.
 -- 4.Advanced SQL Queries: Develop complex queries to analyze and retrieve specific data.
 
+-- Project Structure
+-- 1. Database Setup
+create table images (
+    id int auto_increment primary key,
+    image_name varchar(255),
+    image_data longblob
+);
+
+insert into images (image_name, image_data) 
+values ('EER_library.png', load_file("R:\Git\Library-System-Management---P2\upload github\EER_library.png"));
+
+select 'EER_library.png', "R:\Git\Library-System-Management---P2\upload github\EER_library.png" FROM images;
+
 -- Creating branch table
 create table branch
 (
