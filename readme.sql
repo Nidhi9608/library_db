@@ -15,7 +15,7 @@
 
 -- Project Structure
 -- 1. Database Setup
-![EER Library] (https://github.com/Nidhi9608/library_db/blob/main/EER_library.png alt="EER Library")
+![EER Library] (https://raw.githubusercontent.com/Nidhi9608/library_db/main/EER_library.png alt="EER Library")
 <img src= https://github.com/Nidhi9608/library_db/blob/main/EER_library.png alt="EER Library" width="500">
     
 create table images (
