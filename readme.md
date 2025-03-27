@@ -30,6 +30,7 @@ values ('EER_library.png', load_file("R:\Git\Library-System-Management---P2\uplo
 select 'EER_library.png', "R:\Git\Library-System-Management---P2\upload github\EER_library.png" FROM images;
 
 -- Creating branch table
+'''sql
 create table branch
 (
 branch_id varchar(10) primary key,	
@@ -40,7 +41,7 @@ contact_no varchar(10)
 alter table branch
 modify column contact_no varchar(20);
 select * from branch;
-
+'''
 -- Creating table employees
 create table employees
 (
