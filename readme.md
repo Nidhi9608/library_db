@@ -513,6 +513,9 @@ where days_difference < 60
 order by 1
 ;
 ```
+## Badges
+<img alt="Static Badge" src="https://img.shields.io/badge/MySQL%20">
+
 ## Reports
 * **Database Schema:** Detailed table structures and relationships.
 * **Data Analysis:** Insights into book categories, employee salaries, member registration trends, and issued books.
