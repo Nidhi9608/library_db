@@ -515,6 +515,7 @@ order by 1
 ```
 ## Badges
 ![Static Badge](https://img.shields.io/badge/MySQL%20)
+![Static Badge](https://img.shields.io/badge/Excel%20)
 
 
 ## Reports
