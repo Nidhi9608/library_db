@@ -514,7 +514,8 @@ order by 1
 ;
 ```
 ## Badges
-https://img.shields.io/badge/MySQL%20
+![Static Badge](https://img.shields.io/badge/MySQL%20)
+
 
 ## Reports
 * **Database Schema:** Detailed table structures and relationships.
