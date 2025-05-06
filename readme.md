@@ -1,4 +1,4 @@
-## Library Management System using SQL Project --P2
+## SQL Project: Library Management System 
 * **Project Title:** Library Management System
 * **Database:** library_db
 
